@@ -1,6 +1,6 @@
 package com.jobin.chatbot.utils
 
-class QuesAns {
+object QuesAns {
 
     object Questions {
         const val HELLO = "hello"
@@ -13,10 +13,4 @@ class QuesAns {
         const val DEFAULT = "Please select from the available questions"
     }
 
-    private val answersMap = HashMap<String, String>().apply {
-        put(Questions.HELLO, Answers.QUES_HELLO)
-        put(Questions.HI, Answers.QUES_HI)
-    }
-
-    fun getAnswer(question: String) = answersMap[question.lowercase()] ?: Answers.DEFAULT
 }
