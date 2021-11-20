@@ -34,6 +34,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun processChatMessage(message: String) {
+
+        // don't process if message is blank
+        if(message.isBlank()) return
+
         // show user message
         addChatMessage("YOU -> $message")
 
