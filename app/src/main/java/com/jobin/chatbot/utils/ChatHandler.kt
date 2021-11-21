@@ -10,6 +10,10 @@ object ChatHandler {
 
     }
 
+    fun getQuestions() : List<String> {
+        return answersMap.keys.toList()
+    }
+
     fun handleMessage(message: String): String {
         return answersMap[message.lowercase()] ?: QuesAns.Answers.DEFAULT
     }

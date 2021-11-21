@@ -13,7 +13,10 @@ import com.jobin.chatbot.utils.ChatHandler
 class MainActivity : AppCompatActivity() {
 
     private val chats: ArrayList<String> = arrayListOf()
+    private val questions: List<String> by lazy { ChatHandler.getQuestions() }
+
     private lateinit var rvChat: RecyclerView
+    private lateinit var rvQuestions: RecyclerView
     private lateinit var etChat: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +34,18 @@ class MainActivity : AppCompatActivity() {
         rvChat = findViewById(R.id.chat_messages_list)
         rvChat.layoutManager = LinearLayoutManager(this)
         rvChat.adapter = ChatAdapter(chats)
+
+        // setup questions list
+        rvQuestions = findViewById(R.id.questions_list)
+        rvQuestions.layoutManager = LinearLayoutManager(this)
+        rvQuestions.adapter = ChatAdapter(questions, questionsListener)
+
+    }
+
+    private val questionsListener = object: ChatAdapter.Listener {
+        override fun onChatItemClicked(position: Int, item: String) {
+            processChatMessage(item)
+        }
     }
 
     private fun processChatMessage(message: String) {
@@ -61,5 +76,7 @@ class MainActivity : AppCompatActivity() {
         // add chat item to the list
         chats.add(message)
         rvChat.adapter?.notifyItemInserted(chats.size - 1)
+        rvChat.smoothScrollToPosition(chats.size - 1)
+
     }
 }
