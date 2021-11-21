@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
 class ChatAdapter(private val chats: List<String>, private val listener: Listener? = null) : RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
@@ -29,6 +30,13 @@ class ChatAdapter(private val chats: List<String>, private val listener: Listene
         }
 
         fun setChatMessage(message: String) {
+
+            if(message.startsWith("BOT ->")) {
+                tvChat.background.setTint(ContextCompat.getColor(tvChat.context, R.color.bot_chat_color))
+            }else{
+                tvChat.background.setTint(ContextCompat.getColor(tvChat.context, R.color.user_chat_color))
+            }
+
             tvChat.text = message
         }
     }
