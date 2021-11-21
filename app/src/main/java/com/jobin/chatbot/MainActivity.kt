@@ -19,6 +19,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var rvQuestions: RecyclerView
     private lateinit var etChat: EditText
 
+    companion object {
+        // in Milliseconds
+        private const val BOT_WAIT_TIME: Long = 600
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -62,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         // show bot reply with some delay
         Handler(Looper.getMainLooper()).postDelayed({
             addChatMessage("BOT -> $botReply")
-        }, 1000)
+        }, BOT_WAIT_TIME)
 
         // clear input for next message
         etChat.setText("")
