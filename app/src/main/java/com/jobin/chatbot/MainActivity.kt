@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         addChatMessage("YOU -> $message")
 
         // get bot reply
-        val botReply = ChatHandler.handleMessage(message.lowercase())
+        val botReply = ChatHandler.handleMessage(message)
 
         // show bot reply with some delay
         Handler(Looper.getMainLooper()).postDelayed({

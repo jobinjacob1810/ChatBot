@@ -3,10 +3,10 @@ package com.jobin.chatbot.utils
 object QuesAns {
 
     object Questions {
-        const val HELLO = "hello"
-        const val HI = "hi"
-        const val SEATS = "how many seats are available for admission process?"
-        const val COST ="what is the cost for applying to the various programs?"
+        const val HELLO = "Hello"
+        const val HI = "Hi"
+        const val SEATS = "How many seats are available for admission process?"
+        const val COST ="What is the cost for applying to the various programs?"
     }
 
     object Answers {

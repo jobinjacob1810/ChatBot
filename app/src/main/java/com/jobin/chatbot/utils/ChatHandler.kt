@@ -14,6 +14,6 @@ object ChatHandler {
     }
 
     fun handleMessage(message: String): String {
-        return answersMap[message.lowercase()] ?: QuesAns.Answers.DEFAULT
+        return answersMap[message] ?: QuesAns.Answers.DEFAULT
     }
 }
