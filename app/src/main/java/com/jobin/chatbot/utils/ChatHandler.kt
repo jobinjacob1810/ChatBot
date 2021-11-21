@@ -6,6 +6,8 @@ object ChatHandler {
         put(QuesAns.Questions.HELLO, QuesAns.Answers.QUES_HELLO)
         put(QuesAns.Questions.HI, QuesAns.Answers.QUES_HI)
         put(QuesAns.Questions.COST,QuesAns.Answers.QUES_COST)
+        put(QuesAns.Questions.SEATS,QuesAns.Answers.QUES_SEATS)
+
     }
 
     fun handleMessage(message: String): String {
